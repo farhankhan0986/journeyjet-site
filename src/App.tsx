@@ -40,16 +40,18 @@ import AgentLogin from "./pages/AgentLogin";
 import AgentDashboard from "./pages/AgentDashboard";
 import DealsManagement from "./pages/DealsManagement";
 import FxSavingsDashboard from "./pages/FxSavingsDashboard";
+import Sitemap from "./pages/Sitemap";
 
 const FlybotWrapper = () => {
   const location = useLocation();
-  const isFlybotEnabled = import.meta.env.VITE_ENABLE_FLYBOT !== 'false';
-  
-  const shouldShowFlybot = isFlybotEnabled && 
-    !location.pathname.includes('/support') &&
-    !location.pathname.includes('/customer-support') &&
-    !location.pathname.includes('/help/support');
-  
+  const isFlybotEnabled = import.meta.env.VITE_ENABLE_FLYBOT !== "false";
+
+  const shouldShowFlybot =
+    isFlybotEnabled &&
+    !location.pathname.includes("/support") &&
+    !location.pathname.includes("/customer-support") &&
+    !location.pathname.includes("/help/support");
+
   return shouldShowFlybot ? <FlyBot /> : null;
 };
 
@@ -77,30 +79,47 @@ const App = () => (
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/admin/deals" element={<DealsManagement />} />
-                <Route path="/admin/fx-savings" element={<FxSavingsDashboard />} />
+                <Route
+                  path="/admin/fx-savings"
+                  element={<FxSavingsDashboard />}
+                />
                 <Route path="/payment-options" element={<PaymentOptions />} />
                 <Route path="/payment" element={<PaymentOptions />} />
-                <Route path="/payment/processing" element={<PaymentProcessing />} />
+                <Route
+                  path="/payment/processing"
+                  element={<PaymentProcessing />}
+                />
                 <Route path="/payment/card" element={<PaymentCard />} />
                 <Route path="/payment-success" element={<PaymentSuccess />} />
                 <Route path="/payment/success" element={<PaymentSuccess />} />
                 <Route path="/payment-cancel" element={<PaymentCancel />} />
                 <Route path="/payment/cancel" element={<PaymentCancel />} />
-                <Route path="/booking-confirmation" element={<BookingConfirmation />} />
-                <Route path="/agent-will-connect" element={<AgentWillConnect />} />
+                <Route
+                  path="/booking-confirmation"
+                  element={<BookingConfirmation />}
+                />
+                <Route
+                  path="/agent-will-connect"
+                  element={<AgentWillConnect />}
+                />
                 <Route path="/agent-connect" element={<AgentConnect />} />
                 <Route path="/agent/wallet" element={<AgentWallet />} />
                 <Route path="/agent/login" element={<AgentLogin />} />
                 <Route path="/agent/dashboard" element={<AgentDashboard />} />
                 <Route path="/reviews" element={<SiteReviews />} />
                 <Route path="/reviews/site" element={<SiteReviews />} />
-                <Route path="/reviews/analytics" element={<ReviewsAnalytics />} />
+                <Route
+                  path="/reviews/analytics"
+                  element={<ReviewsAnalytics />}
+                />
                 <Route path="/careers" element={<Careers />} />
                 <Route path="/error" element={<ErrorPage />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/sitemap" element={<Sitemap />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
+
               <FlybotWrapper />
             </AuthProvider>
           </ErrorBoundary>
