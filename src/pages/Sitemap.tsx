@@ -1,13 +1,17 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { siteMapData } from "../data/sitemapData";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default function Sitemap() {
+   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Header />
-      <div className="container mx-auto px-4 py-10 pt-24 pb-">
+      <div className="container mx-auto px-4 py-10 pt-24 pb-20">
         <h1 className="text-3xl font-bold mb-8">Site Map</h1>
 
         <div className="space-y-10">
